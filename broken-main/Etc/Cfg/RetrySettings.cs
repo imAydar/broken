@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BrokenCode.Cfg
+﻿namespace BrokenCode.Cfg
 {
     /// <summary>
     /// Common settings.
@@ -20,3 +16,4 @@ namespace BrokenCode.Cfg
         public int RetryInterval { get; } = 1000;
     }
 }
+

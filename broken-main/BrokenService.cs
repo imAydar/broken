@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Threading;
 using System.Threading.Tasks;
+
 using BrokenCode.Cfg;
-using BrokenCode.Data;
 using BrokenCode.Etc;
 using BrokenCode.Helpers;
 using BrokenCode.Interfaces;
 using BrokenCode.Mappings;
 using BrokenCode.Model;
-using log4net;
-using log4net.Util;
+
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Polly;
-using Polly.Retry;
+using log4net;
 
 namespace BrokenCode
 {
+    /// <summary>
+    /// Fixed broken service.
+    /// </summary>
     public class BrokenService
     {
         /// <summary>

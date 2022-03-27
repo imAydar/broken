@@ -1,8 +1,8 @@
-﻿using BrokenCode.Etc;
-using BrokenCode.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+
+using BrokenCode.Etc;
+using BrokenCode.Model;
 using BrokenCode.Model.Enums;
 
 namespace BrokenCode.Helpers

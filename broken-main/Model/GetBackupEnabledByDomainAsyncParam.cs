@@ -1,7 +1,6 @@
-﻿using BrokenCode.Model;
-using System;
+﻿using System;
 
-namespace BrokenCode.Data
+namespace BrokenCode.Model
 {
     public class GetBackupEnabledByDomainAsyncParam
     {
