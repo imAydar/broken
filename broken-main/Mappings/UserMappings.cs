@@ -37,9 +37,9 @@ namespace BrokenCode.Mappings
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public static GetBackupEnabledByDomainAsyncParam ToGetBackupEnabledUsersByDomainAsyncParam(this GetReportRequest request)
+        public static GetUsersAsyncParam ToGetUsersAsyncParam(this GetReportRequest request)
         {
-            return new GetBackupEnabledByDomainAsyncParam
+            return new GetUsersAsyncParam
             {
                 DomainId = request.DomainId,
                 BackupEnabled = true,

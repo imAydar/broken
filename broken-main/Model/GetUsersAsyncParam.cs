@@ -2,7 +2,7 @@
 
 namespace BrokenCode.Model
 {
-    public class GetBackupEnabledByDomainAsyncParam
+    public class GetUsersAsyncParam
     {
         /// <summary>
         /// Id of domain.

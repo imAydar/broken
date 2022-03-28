@@ -99,7 +99,7 @@ namespace BrokenCode
         /// <exception cref="Exception"></exception>
         private async Task<IActionResult> GetReportAsyncInner(GetReportRequest request)
         {
-            var filteredUsers = await _userRepository.GetBackupEnabledUsersByDomainAsync(request.ToGetBackupEnabledUsersByDomainAsyncParam());
+            var filteredUsers = await _userRepository.GetUsersAsync(request.ToGetUsersAsyncParam());
             int userTotalCount = filteredUsers?.Count() ?? 0;
             filteredUsers = filteredUsers.Paginate(request.PageSize, request.PageNumber);
 

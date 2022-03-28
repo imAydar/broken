@@ -13,6 +13,6 @@ namespace BrokenCode.Interfaces
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        Task<IEnumerable<User>> GetBackupEnabledUsersByDomainAsync(GetBackupEnabledByDomainAsyncParam param);
+        Task<IEnumerable<User>> GetUsersAsync(GetUsersAsyncParam param);
     }
 }
