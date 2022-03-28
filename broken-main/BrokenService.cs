@@ -81,12 +81,12 @@ namespace BrokenCode
             //If i had to use it(in case of multithreading), i'd preferably use SemaphoreSlim,
             //because Monitor won't work correctly with async methods.
             //Also for increment i'd use the atomic operation Interlocked.Increment(ref _counter).
-            //Also i'd not implement my own Retry if it'd be enough to use the Polly library.
+            //Also i'd not implement my own Retry if it'd be enough to use the Polly library, but
+            //there's some additional handlers need to be implemented.
             return await Retry<IActionResult>
                 .Attempts(_retrySettings.RetryAttemptsNumber)
                 .Interval(_retrySettings.RetryInterval)
-                .Invoke(
-                    async () => await GetReportAsyncInner(request),
+                .Invoke(async () => await GetReportAsyncInner(request),
                     OnGetReportFailed,
                     OnAttemptsExceed);
         }
@@ -112,8 +112,8 @@ namespace BrokenCode
 
             var usersStatistic = filteredUsers.Select(u => u.ToStatistics(guidsToLicences));
             
-            //Might be better to return an actual class instead of anonymous type, one benefit for
-            //example is the fact that we could se definition of result object in Swagger.
+            //Might be better to return an actual class instead of anonymous type, for example we
+            //could see schemas in Swagger.
             return new OkObjectResult(new
             {
                 TotaCount = userTotalCount,
@@ -121,13 +121,13 @@ namespace BrokenCode
             });
         }
 
-        //The code bellow is all about licences and honestly i'd move it to LicenceService, but we
-        //already have ILicenseService interface and i assume that implementation of it is consider,
-        //so considering the condition of task was not to change anything other brokenService class
-        //I left it as it is.
+        //The code bellow is all about licences and i'd move it to LicenceService, but we already
+        //have ILicenseService interface and i assume that implementation of it is consider, so
+        //considering the task was not to change anything other brokenService class I left it as it
+        //is.
         #region licenseLogic
         //Also i almost never use regions unless other code is written with it(in monolithic app for
-        //example). If code has decent architecture, there's no need to use regions.
+        //example). I think code with decent architecture don't need to have regions.
         private async Task<Dictionary<Guid, LicenseInfo>> GetGuidToLicencesDictionaryAsync(GetReportRequest request,
             IEnumerable<User> filteredUsers)
         {
@@ -156,7 +156,7 @@ namespace BrokenCode
         }
         
         /// <summary>
-        /// Returns the license service
+        /// Returns the license service.
         /// </summary>
         /// <returns></returns>
         private ILicenseService GetLicenseService()
@@ -210,7 +210,7 @@ namespace BrokenCode
         /// <returns></returns>
         private Dictionary<Guid, LicenseInfo> GetUserLicenses(IEnumerable<User> users, ICollection<LicenseInfo> licenses)
         {
-            //Could be done with less code by using LINQ, but foreach code is more readable(imho).
+            //Could be done with less code by using LINQ, but i think foreach code is more readable.
             var result = new Dictionary<Guid, LicenseInfo>();
 
             foreach (var user in users)
