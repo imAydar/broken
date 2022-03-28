@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using BrokenCode.Cfg;
 using BrokenCode.Etc;
+using BrokenCode.Etc.Settings;
 using BrokenCode.Helpers;
 using BrokenCode.Interfaces;
 using BrokenCode.Mappings;

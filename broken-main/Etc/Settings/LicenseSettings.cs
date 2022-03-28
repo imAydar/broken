@@ -1,4 +1,4 @@
-﻿namespace BrokenCode.Cfg
+﻿namespace BrokenCode.Etc.Settings
 {
     public class LicenseSettings
     {
