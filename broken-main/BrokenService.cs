@@ -84,8 +84,8 @@ namespace BrokenCode
             //Also i'd not implement my own Retry if it'd be enough to use the Polly library, but
             //there's some additional handlers need to be implemented.
             return await Retry<IActionResult>
-                .Attempts(_retrySettings.RetryAttemptsNumber)
-                .Interval(_retrySettings.RetryInterval)
+                .Attempts(_retrySettings.AttemptsNumber)
+                .Interval(_retrySettings.Interval)
                 .Invoke(async () => await GetReportAsyncInner(request),
                     OnGetReportFailed,
                     OnAttemptsExceed);
@@ -176,7 +176,7 @@ namespace BrokenCode
         private LicenseServiceSettings GetSettings(LicenseServiceSettings settings)
         {
             settings ??= new LicenseServiceSettings();
-            settings.TimeOut = _licenseSettings.LicenceSettingsTimeout;
+            settings.TimeOut = _licenseSettings.Timeout;
 
             return settings;
         }

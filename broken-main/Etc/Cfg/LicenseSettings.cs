@@ -5,6 +5,6 @@
         /// <summary>
         /// Timeout of request to licence service.
         /// </summary>
-        public int LicenceSettingsTimeout { get; } = 5000;
+        public int Timeout { get; } = 5000;
     }
 }

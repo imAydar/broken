@@ -8,12 +8,12 @@
         /// <summary>
         /// Number of attempts.
         /// </summary>
-        public int RetryAttemptsNumber { get; } = 10;
+        public int AttemptsNumber { get; } = 10;
 
         /// <summary>
         /// Retry interval in ms.
         /// </summary>
-        public int RetryInterval { get; } = 1000;
+        public int Interval { get; } = 1000;
     }
 }
 
